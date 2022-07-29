@@ -18,7 +18,8 @@ function startOfGhangeColor() {
         const color = getRandomHexColor();
         // console.log(color);
         body.style.backgroundColor = color;
-        btnStart.removeEventListener('click', startOfGhangeColor);
+        // btnStart.removeEventListener('click', startOfGhangeColor);
+        btnStart.disabled = true;
     }
         , 1000);
 
@@ -26,5 +27,7 @@ function startOfGhangeColor() {
 
 function endOfChangeColor() {
     clearInterval(timerId);
-    btnStart.addEventListener('click', startOfGhangeColor);
+    // btnStart.addEventListener('click', startOfGhangeColor);
+    btnStart.disabled = false;
+    
 }
