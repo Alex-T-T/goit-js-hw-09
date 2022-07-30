@@ -26,6 +26,7 @@ const options = {
     if (Date.now() < selectedDates[0]) {
       btn.disabled = false;
       Notiflix.Notify.success('Sol lucet omnibus');
+      console.log(`${days}:${hours}:${minutes}:${seconds}`);
       return;
     }
     else {
@@ -63,10 +64,6 @@ setInterval(() => {
 
   }, 1000)
 }
-// ==============================
-// Interval
-
-// setInterval(runTimer, 1000)
 
 // ==============================
 // convertation of date
@@ -96,3 +93,86 @@ function convertMs(ms) {
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
+
+// ==============================
+
+
+// // ==============================
+// // Leo 
+
+// import flatpickr from "flatpickr";
+// import "flatpickr/dist/flatpickr.min.css";
+// let timeoutId = null;
+// const daysEl = document.querySelector("span[data-days]");
+// const hoursEl = document.querySelector("span[data-hours]");
+// const minutesEl = document.querySelector("span[data-minutes]");
+// const secondsEl = document.querySelector("span[data-seconds]");
+// const buttonStart = document.querySelector("button[data-start]");
+// function convertMs(ms) {
+//   const second = 1000;
+//   const minute = second * 60;
+//   const hour = minute * 60;
+//   const day = hour * 24;
+//   const days = addLeadingZero(Math.floor(ms / day));
+//   const hours = addLeadingZero(Math.floor((ms % day) / hour));
+//   const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+//   const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
+//   return { days, hours, minutes, seconds };
+// }
+// let finalDate = null; 
+
+// const options = {
+//   enableTime: true,
+//   time_24hr: true,
+//   defaultDate: new Date(),
+//   minuteIncrement: 1,
+//   onClose(selectedDates) {
+//     if(new Date() >= selectedDates[0]) {
+//       buttonStart.disabled = true;
+//       window.alert("Please choose a date in the future");
+//       } else {
+//       buttonStart.disabled = false;
+//       finalDate = selectedDates[0].getTime();
+//           };
+//       console.log(selectedDates[0]);
+//   }
+// };
+// function addLeadingZero(value) {
+//   return String(value).padStart(2, '0');
+// };
+// class Timer {
+//   constructor() {
+//     this.intervalId = null;
+//     this.isActive = false;
+//     buttonStart.disabled = true;
+//   }
+//     start() {
+//     if (this.isActive) {
+//       return
+//       }
+//     const startTime = finalDate;
+//     this.isActive = true;
+//       this.intervalId = setInterval(() => {
+//         const currentTime = Date.now();
+//         const deltaTime = startTime - currentTime;
+//         const result = convertMs(deltaTime);
+//         const { days, hours, minutes, seconds } = result;
+//         if ( deltaTime <= 0 ) {
+//           this.stop();
+//         }
+//         daysEl.textContent = days;
+//         hoursEl.textContent = hours;
+//         minutesEl.textContent = minutes;
+//         secondsEl.textContent = seconds;
+//         console.log(`${days}:${hours}:${minutes}:${seconds}`);
+//       }, 1000);
+//     }
+  
+//     stop() {
+//     clearInterval(this.intervalId);
+//     this.isActive = false;
+//     }
+//   }
+// const timer = new Timer();
+// buttonStart.addEventListener('click', () => { timer.start() });
+// flatpickr("input#datetime-picker", options);
