@@ -26,12 +26,11 @@ const options = {
     if (Date.now() < selectedDates[0]) {
       btn.disabled = false;
       Notiflix.Notify.success('Sol lucet omnibus');
-      console.log(`${days}:${hours}:${minutes}:${seconds}`);
       return;
     }
     else {
       btn.disabled = true;
-      Notiflix.Notify.failure('Qui timide rogat docet negare');
+      Notiflix.Notify.failure('Please choose a date in the future');
     };
     
   },
@@ -62,6 +61,8 @@ setInterval(() => {
     leftMinutes.textContent = minutes //< 10 ? `0${minutes}`: minutes;
     leftSeconds.textContent = seconds //< 10 ? `0${seconds}`: seconds;
 
+      console.log(`${days}:${hours}:${minutes}:${seconds}`);
+  
   }, 1000)
 }
 
