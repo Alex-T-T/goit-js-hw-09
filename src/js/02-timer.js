@@ -3,9 +3,9 @@ import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
 
 const input = document.querySelector('input');
-const btn = document.querySelector('button');
-btn.disabled = true;
-btn.addEventListener('click', runTimer);
+const btnOn = document.querySelector('button[data-start]');
+btnOn.disabled = true;
+btnOn.addEventListener('click', runTimer);
 
 let intervalId = null;
 const leftDays = document.querySelector('span[data-days]');
@@ -24,12 +24,12 @@ const options = {
   onClose(selectedDates) {
     chosenDate = selectedDates[0].getTime();
     if (Date.now() < selectedDates[0]) {
-      btn.disabled = false;
+      btnOn.disabled = false;
       Notiflix.Notify.success('Sol lucet omnibus');
       return;
     }
     else {
-      btn.disabled = true;
+      btnOn.disabled = true;
       Notiflix.Notify.failure('Please choose a date in the future');
     };
     

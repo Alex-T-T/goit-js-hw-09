@@ -4,6 +4,7 @@ const formEl = document.querySelector('form');
 
 formEl.addEventListener('submit', createPromiseOnClick);
 
+// ==============================
 
 function createPromiseOnClick(event) {
       
@@ -12,11 +13,11 @@ function createPromiseOnClick(event) {
       const delayInputValue = Number(formEl.delay.value);
       const stepInputValue = Number(formEl.step.value);
       const amountInputValue = Number(formEl.amount.value);
-      
-      setTimeout(() => {
-          qwerty(amountInputValue, stepInputValue, delayInputValue)
-          }, delayInputValue)
+  
+      ciclePromiseCreate(amountInputValue, stepInputValue, delayInputValue)
 }
+
+// ==============================
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
@@ -32,11 +33,14 @@ function createPromise(position, delay) {
       })
     }
 
-function qwerty(position, delay, firstDelay) {
+// ==============================
+
+function ciclePromiseCreate(position, delay, firstDelay) {
       
           for (let i = 1; i <= position; i += 1) {
-
-            delayFinal = firstDelay + delay*i;
+          
+            delayFinal = firstDelay + delay * (i - 1);
+            
             createPromise(i, delayFinal).then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
@@ -45,3 +49,5 @@ function qwerty(position, delay, firstDelay) {
       }) 
           }
 }
+
+// ==============================

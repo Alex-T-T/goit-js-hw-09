@@ -16,3 +16,55 @@ img {
   display: block;
   max-width: 100%;
 }
+
+#datetime-picker {
+  display: block; 
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  color: aliceblue;
+  border-radius: 50%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color:aliceblue;
+  padding: 4px;
+  
+}
+
+.field:not(:last-child) {
+  margin-right: 20px;
+}
+
+button[data-start] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+    background-color: rgb(5, 122, 67);
+      color: aliceblue;
+}
+
+button[disabled] {
+  background-color: rgb(237, 219, 159);
+}
+
+button[data-stop] {
+  background-color: rgb(150, 46, 46);
+  color: aliceblue;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
