@@ -39,7 +39,7 @@ function ciclePromiseCreate(position, delay, firstDelay) {
       
           for (let i = 1; i <= position; i += 1) {
           
-            delayFinal = firstDelay + delay * (i - 1);
+            const delayFinal = firstDelay + delay * (i - 1);
             
             createPromise(i, delayFinal).then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
